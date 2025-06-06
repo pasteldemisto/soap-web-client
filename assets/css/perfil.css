@@ -1,0 +1,70 @@
+body {
+    background-color: #ffffff;
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  /* Barra superior azul */
+  .top-bar {
+    background-color: #0026ff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  /* Ícone circular (voltar ou perfil) */
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Wrapper e container padrão */
+  .main-wrapper {
+    padding: 2rem 1rem;
+  }
+  
+  .main-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Cartão de perfil */
+  .profile-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Imagem do perfil */
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  /* Blocos de informação */
+  .info-box {
+    background-color: #e6f0ff;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  

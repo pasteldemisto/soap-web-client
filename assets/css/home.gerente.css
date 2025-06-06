@@ -1,0 +1,147 @@
+body {
+  background-color: #f9f9f9;
+}
+
+.nav-bar {
+  background-color: #1900ff;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.user-icon {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Menu de navegação */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  background-color: #1900ff;
+  justify-content: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link:last-of-type {
+  border-right: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1900ff;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 5;
+    border-top: 1px solid #ffffff33;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+  }
+}
+
+.date-header {
+  background-color: #4d91ff;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.schedule-card {
+  background-color: #e9f0ff;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.section-title {
+  background-color: #4d91ff;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+.form-control[readonly] {
+  background-color: #e9f0ff;
+}
+
+.main-wrapper {
+  width: 85vw;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.main-container {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    border: none;
+  }
+  
+}

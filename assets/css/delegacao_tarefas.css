@@ -1,0 +1,51 @@
+/* Top bar padrão com botão de voltar */
+.top-bar {
+  background-color: #1900ff;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
+}
+
+.top-bar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Calendário funcional */
+.calendar-table td {
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  vertical-align: middle;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.calendar-table td:hover {
+  background-color: #e2e6f3;
+}
+
+.calendar-table .selected {
+  border: 2px solid #0d6efd;
+  border-radius: 50%;
+  background-color: #e0f0ff;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .calendar-container {
+    padding: 1rem;
+  }
+
+  .calendar-table td {
+    font-size: 0.9rem;
+    height: 40px;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+}

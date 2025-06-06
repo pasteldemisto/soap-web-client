@@ -1,0 +1,84 @@
+body {
+    background-color: #f9f9f9;
+  }
+  
+  .top-bar {
+    background-color: #1900ff;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .top-bar a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .date-header {
+    background-color: #4d91ff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .schedule-card {
+    background-color: #e9f0ff;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .section-title {
+    background-color: #4d91ff;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  
+  
+  .form-control[readonly],
+  #formulario-adicionar select,
+  #formulario-adicionar textarea,
+  #formulario-adicionar input[type="time"] {
+    background-color: #e9f0ff;
+  }
+  
+  .main-wrapper {
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  
+  .main-container {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .main-container {
+      flex-direction: row;
+    }
+  }
+  
+  .card-full-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
