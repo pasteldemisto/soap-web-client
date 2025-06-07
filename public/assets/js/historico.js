@@ -1,29 +1,13 @@
 // ========================== ESTADO GLOBAL ===========================
 let registros = [];
 let registrosPorData = {};
-let responsaveis = [];
 import { API_URL } from './config.js';
-
-const servicos = {
-  "Limpeza Banheiros": "Realizar limpeza completa dos banheiros.",
-  "Reposição de Materiais": "Verificar e repor materiais de limpeza.",
-  "Limpeza de Janelas": "Limpar todas as janelas do andar.",
-  "Verificação de Estoque": "Checar níveis de estoque e registrar necessidades.",
-  "Limpeza Corredores": "Varrição e lavagem de corredores."
-};
-
-const blocos = [
-  "Bloco A", "Bloco B", "Bloco C", "Bloco D", "Bloco E", "Bloco F",
-  "Bloco H", "Bloco I", "Bloco J", "Bloco K", "Bloco M", "Bloco N",
-  "Bloco O", "Bloco P", "Bloco Q", "Bloco R", "Bloco T", "Bloco Z"
-];
 
 let indiceAtual = 0;
 let dataAtual = "";
 
 // ========================== BUSCA DE DADOS ============================
 await buscarRegistros();
-await buscarFuncionarios();
 
 async function buscarRegistros() {
   try {
@@ -70,28 +54,6 @@ async function buscarRegistros() {
     
   } catch (error) {
     console.error('Erro ao buscar tarefas:', error);
-  }
-}
-
-async function buscarFuncionarios() {
-  try {
-    const res = await fetch(`${API_URL}/api/funcionarios/listarFuncionarios`, {
-      method: 'GET',
-      credentials: 'include'
-    });
-    if (!res.ok) return console.error('Erro ao buscar funcionários:', await res.json());
-
-    const funcionarios = await res.json();
-    responsaveis = funcionarios.map(f => ({
-      _id: f._id,
-      nome: f.nome,
-      matricula: f.matricula,
-      cargo: f.cargo,
-      email: f.email
-    }));
-
-  } catch (error) {
-    console.error('Erro ao buscar funcionários:', error);
   }
 }
 
