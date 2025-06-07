@@ -4,7 +4,7 @@ let funcionarioLogado = null;
 // ======================= BUSCA DO FUNCIONÁRIO LOGADO =======================
 async function buscarFuncionarioLogado() {
   try {
-    const res = await fetch('http://localhost:3000/api/funcionarios/obterFuncionario', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/obterFuncionario`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -26,7 +26,7 @@ async function buscarFuncionarioLogado() {
 // ======================= BUSCA DO BANCO =======================
 async function buscarProdutos() {
   try {
-    const res = await fetch('http://localhost:3000/api/produtos/listarProdutos', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/listarProdutos`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -108,7 +108,7 @@ async function enviarProdutos() {
   };
 
   try {
-    const res = await fetch('http://localhost:3000/api/pedidos/criarPedido', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/pedidos/criarPedido`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -125,7 +125,7 @@ async function enviarProdutos() {
     exibirMensagem('✅ Pedido enviado com sucesso!', 'success');
 
     for (const produto of produtosParaEnviar) {
-      await fetch('http://localhost:3000/api/produtos/atualizarEstoque', {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/atualizarEstoque`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

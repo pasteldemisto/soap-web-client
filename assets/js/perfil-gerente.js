@@ -40,7 +40,7 @@ document.getElementById('form-usuario').addEventListener('submit', async (e) => 
   }
 
   try {
-    const res = await fetch('http://localhost:3000/api/funcionarios/criarFuncionario', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/criarFuncionario`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -69,7 +69,7 @@ document.getElementById('form-usuario').addEventListener('submit', async (e) => 
 // Atualiza a lista de usuários
 async function buscarFuncionarios() {
   try {
-    const res = await fetch('http://localhost:3000/api/funcionarios/listarFuncionarios', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/listarFuncionarios`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -150,7 +150,7 @@ document.getElementById('btn-solicitar-senha')?.addEventListener('click', () => 
 
 async function carregarPerfilGerente() {
   try {
-    const res = await fetch('http://localhost:3000/api/funcionarios/obterFuncionario', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/obterFuncionario`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -205,7 +205,7 @@ document.getElementById('btn-editar').addEventListener('click', async () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/funcionarios/atualizarFuncionario/${idUsuarioAtual}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/atualizarFuncionario/${idUsuarioAtual}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

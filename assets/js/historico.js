@@ -26,7 +26,7 @@ await buscarFuncionarios();
 
 async function buscarRegistros() {
   try {
-    const res = await fetch('http://localhost:3000/api/tarefas/listarTarefas', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/listarTarefas`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -74,7 +74,7 @@ async function buscarRegistros() {
 
 async function buscarFuncionarios() {
   try {
-    const res = await fetch('http://localhost:3000/api/funcionarios/listarFuncionarios', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/listarFuncionarios`, {
       method: 'GET',
       credentials: 'include'
     });
@@ -199,7 +199,7 @@ formAdicionar.addEventListener("submit", async (e) => {
   if (!textareaNovaDescricao.value) return alert("Escreva a descrição da tarefa!");
 
   try {
-    const res = await fetch(`http://localhost:3000/api/tarefas/criarTarefa`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/criarTarefa`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

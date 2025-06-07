@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
 
-      const res = await fetch('http://localhost:3000/api/funcionarios/login', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
     } catch (error){
+      botao.disabled = false;
       console.error('Erro no login: ', error)
       erroDiv.style.display = 'block';
-      botao.disabled = false;
     }
 
     

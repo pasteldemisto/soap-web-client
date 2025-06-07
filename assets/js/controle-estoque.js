@@ -21,7 +21,7 @@ function exibirMensagem(texto, tipo = 'sucesso') {
 
 async function carregarProdutos() {
   try {
-    const res = await fetch('http://localhost:3000/api/produtos/listarProdutos');
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/listarProdutos`);
     const dados = await res.json();
     produtos = dados.map(p => ({
       _id: p._id,
@@ -134,7 +134,7 @@ function ativarEdicaoQuantidade() {
 
       if (produtoEncontrado) {
         try {
-          await fetch(`http://localhost:3000/api/produtos/atualizarProduto/${id}`, {
+          await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/atualizarProduto/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ estoque: novaQtd })
@@ -190,7 +190,7 @@ formProduto.addEventListener('submit', async (e) => {
   }
 
   try {
-    const res = await fetch(`http://localhost:3000/api/produtos/criarProduto`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/criarProduto`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -227,7 +227,7 @@ function ativarExclusaoProduto() {
       if (!confirmar) return;
 
       try {
-        const res = await fetch(`http://localhost:3000/api/produtos/deletarProduto/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/deletarProduto/${id}`, {
           method: 'DELETE'
         });
 
