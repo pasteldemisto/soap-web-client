@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Navegação
 document.getElementById('voltar-home')?.addEventListener('click', () => {
-  window.location.href = 'home-gerente.html';
+  window.location.href = '/home-gerente.html';
 });
 
 // Modal de cadastro
@@ -169,7 +169,7 @@ async function carregarPerfilGerente() {
     console.error('Erro ao carregar perfil do gerente: ', error);
     exibirMensagem("Você precisa estar logado para acessar essa página!", "erro");
     setTimeout(() => {
-      window.location.href = 'index.html';
+      window.location.href = '/index.html';
     }, 3000);
   }
 }

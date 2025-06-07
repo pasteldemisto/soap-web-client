@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       if (tipoUsuario === 'gerente' || tipoUsuario === 'supervisor') {
-        window.location.href = '/public/home-gerente.html';
+        window.location.href = '/home-gerente.html';
       } else {
-        window.location.href = '/public/home.html';
+        window.location.href = '/home.html';
       }
       
     } catch (error){
