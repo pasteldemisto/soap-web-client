@@ -57,7 +57,7 @@ function renderizarProdutos(lista) {
     col.className = 'col-6 col-md-3';
 
     col.innerHTML = `
-      <div class="product-card border p-3 rounded bg-light d-flex flex-column align-items-center" data-produto="${prod.nome}">
+      <div class="product-card border p-3 rounded bg-light d-flex flex-column align-items-center" data-id="${prod._id}" data-produto="${prod.nome}">
         <div class="fw-bold text-center">${prod.nome}</div>
         <div class="text-muted mt-1">${prod.estoque ?? 0} und</div>
         ${prod.categoria ? `<div class="badge bg-secondary mt-2">${prod.categoria}</div>` : ''}
@@ -126,13 +126,18 @@ async function enviarProdutos() {
     exibirMensagem('✅ Pedido enviado com sucesso!', 'success');
 
     for (const produto of produtosParaEnviar) {
-      await fetch(`${API_URL}/api/produtos/atualizarEstoque`, {
+      const card = document.querySelector(`.product-card[data-produto="${produto.nome}"]`);
+      const id = card?.getAttribute('data-id');
+      if (!id) continue;
+
+
+      await fetch(`${API_URL}/api/produtos/atualizarEstoque/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({
           nome: produto.nome,
-          quantidade: -1 
+          quantidade: -1
         })
       });
     }
