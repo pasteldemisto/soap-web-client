@@ -1,6 +1,7 @@
 // ========================== ESTADO GLOBAL ===========================
 let registros = [];
 let registrosPorData = {};
+let responsaveis = [];
 import { API_URL } from './config.js';
 
 const servicos = {
