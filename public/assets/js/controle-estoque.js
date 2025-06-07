@@ -7,6 +7,7 @@ let produtos_categoria = JSON.parse(localStorage.getItem('produtos')) || [
 ];
 
 let produtos = [];
+import { API_URL } from './config.js';
 
 const mensagemStatus = document.getElementById('mensagem-status');
 
@@ -21,7 +22,7 @@ function exibirMensagem(texto, tipo = 'sucesso') {
 
 async function carregarProdutos() {
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/listarProdutos`);
+    const res = await fetch(`${API_URL}/api/produtos/listarProdutos`);
     const dados = await res.json();
     produtos = dados.map(p => ({
       _id: p._id,
@@ -134,7 +135,7 @@ function ativarEdicaoQuantidade() {
 
       if (produtoEncontrado) {
         try {
-          await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/atualizarProduto/${id}`, {
+          await fetch(`${API_URL}/api/produtos/atualizarProduto/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ estoque: novaQtd })
@@ -190,7 +191,7 @@ formProduto.addEventListener('submit', async (e) => {
   }
 
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/criarProduto`, {
+    const res = await fetch(`${API_URL}/api/produtos/criarProduto`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -227,7 +228,7 @@ function ativarExclusaoProduto() {
       if (!confirmar) return;
 
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/produtos/deletarProduto/${id}`, {
+        const res = await fetch(`${API_URL}/api/produtos/deletarProduto/${id}`, {
           method: 'DELETE'
         });
 

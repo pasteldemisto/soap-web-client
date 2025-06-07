@@ -1,3 +1,5 @@
+import { API_URL } from './config.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
   const inputNome = document.querySelector('input[readonly]');
   const inputHorario = document.querySelectorAll('input[readonly]')[1];
@@ -9,6 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   let registros = [];
   let indiceAtual = 0;
+  
+  
 
   const hoje = new Date();
   const yyyy = hoje.getFullYear();
@@ -19,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function carregarTarefasDoDia() {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/listarTarefas`, {
+      const res = await fetch(`${API_URL}/api/tarefas/listarTarefas`, {
         credentials: 'include'
       });
 

@@ -1,4 +1,5 @@
 let registros = [];
+import { API_URL } from './config.js';
 
 let servicos = {};
 let responsaveis = [];
@@ -82,7 +83,7 @@ document.getElementById("btn-confirmar-sim").onclick = async () => {
   }
 
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/deletarTarefa/${idParaExcluir}`, {
+    const res = await fetch(`${API_URL}/api/tarefas/deletarTarefa/${idParaExcluir}`, {
       method: "DELETE",
       credentials: "include"
     });
@@ -100,7 +101,7 @@ document.getElementById("btn-confirmar-sim").onclick = async () => {
 };
 
 async function carregarServicos() {
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/servicos/listarServicos`);
+  const res = await fetch(`${API_URL}/api/servicos/listarServicos`);
   const dados = await res.json();
   servicos = {};
   selectServico.innerHTML = '<option disabled selected>Selecione um serviço</option>';
@@ -111,7 +112,7 @@ async function carregarServicos() {
 }
 
 async function carregarFuncionarios() {
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/funcionarios/listarFuncionarios`, {
+  const res = await fetch(`${API_URL}/api/funcionarios/listarFuncionarios`, {
     credentials: "include"
   });
   const dados = await res.json();
@@ -130,7 +131,7 @@ async function carregarFuncionarios() {
 
 
 async function carregarBlocos() {
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blocos/listarBlocos`);
+  const res = await fetch(`${API_URL}/api/blocos/listarBlocos`);
   const dados = await res.json();
   blocos = dados;
   selectBloco.innerHTML = '<option disabled selected>Selecione um bloco</option>';
@@ -162,7 +163,7 @@ formAdicionar.addEventListener("submit", async (e) => {
     idFuncionario: responsaveis.find(f => f.nome === selectResponsavel.value)?._id
   };
 
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/criarTarefa`, {
+  const res = await fetch(`${API_URL}/api/tarefas/criarTarefa`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -189,7 +190,7 @@ async function carregarTarefasDoDia() {
   const dataSelecionada = inputData.value;
 
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tarefas/listarTarefas`, {
+    const res = await fetch(`${API_URL}/api/tarefas/listarTarefas`, {
       credentials: "include"
     });
 
