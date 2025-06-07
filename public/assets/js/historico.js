@@ -3,6 +3,20 @@ let registros = [];
 let registrosPorData = {};
 import { API_URL } from './config.js';
 
+const servicos = {
+  "Limpeza Banheiros": "Realizar limpeza completa dos banheiros.",
+  "Reposição de Materiais": "Verificar e repor materiais de limpeza.",
+  "Limpeza de Janelas": "Limpar todas as janelas do andar.",
+  "Verificação de Estoque": "Checar níveis de estoque e registrar necessidades.",
+  "Limpeza Corredores": "Varrição e lavagem de corredores."
+};
+
+const blocos = [
+  "Bloco A", "Bloco B", "Bloco C", "Bloco D", "Bloco E", "Bloco F",
+  "Bloco H", "Bloco I", "Bloco J", "Bloco K", "Bloco M", "Bloco N",
+  "Bloco O", "Bloco P", "Bloco Q", "Bloco R", "Bloco T", "Bloco Z"
+];
+
 let indiceAtual = 0;
 let dataAtual = "";
 
